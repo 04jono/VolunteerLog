@@ -1,0 +1,18 @@
+.idea/*
+
+#Ignore bin and .class files
+*.class
+bin/*
+
+#Ignore External Libraries
+lib/*
+
+#Saves and Outputs
+saves/*
+!saves/.gitkeep
+output/*
+!output/.gitkeep
+
+#Ignore Credentials
+secret/*
+!secret/.gitkeep
