@@ -10,8 +10,8 @@ module com.volunteerlog.volunteerlog2 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires org.json;
-    requires kernel;
     requires forms;
+    requires kernel;
     requires layout;
 
     opens com.volunteerlog.volunteerlog2 to javafx.fxml;
