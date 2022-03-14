@@ -9,6 +9,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,7 +21,7 @@ import org.json.*;
 public class Entry extends Button
 {
     private OpenedEntryController controller;
-
+    private ContextMenu contextMenu;
     //Fields
     private JSONObject fields;
 
@@ -58,10 +61,19 @@ public class Entry extends Button
 
             @Override
             public void handle(MouseEvent arg0) {
-                click();
+                if(arg0.getButton() == MouseButton.PRIMARY)
+                    click();
             }
-            
+
         });
+        contextMenu = new ContextMenu();
+        MenuItem edit = new MenuItem("Edit");
+        MenuItem print = new MenuItem("Print");
+        MenuItem delete = new MenuItem("Delete");
+
+        contextMenu.getItems().addAll(edit, print, delete);
+
+        this.setContextMenu(contextMenu);
     }
     public void click(){
         //Opened Entry

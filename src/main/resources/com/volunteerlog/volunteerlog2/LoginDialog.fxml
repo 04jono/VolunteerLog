@@ -19,7 +19,7 @@
   <items>
       <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="599.0">
          <children>
-            <Label text="Sign In">
+            <Label fx:id="header" text="Sign In">
                <VBox.margin>
                   <Insets left="30.0" />
                </VBox.margin>
@@ -71,7 +71,7 @@
             </TextField>
             <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New to Volunteer Log?" />
+                  <Text fx:id="helpText" strokeType="OUTSIDE" strokeWidth="0.0" text="New to Volunteer Log?" />
                   <Hyperlink fx:id="createAccountLink" text="Create an account" />
                </children>
                <GridPane.margin>
