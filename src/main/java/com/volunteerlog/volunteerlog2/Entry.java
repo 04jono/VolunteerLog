@@ -66,12 +66,15 @@ public class Entry extends Button
             }
 
         });
+
         contextMenu = new ContextMenu();
-        MenuItem edit = new MenuItem("Edit");
         MenuItem print = new MenuItem("Print");
         MenuItem delete = new MenuItem("Delete");
 
-        contextMenu.getItems().addAll(edit, print, delete);
+        print.setOnAction((event) -> {
+            print();
+        });
+        contextMenu.getItems().addAll(print, delete);
 
         this.setContextMenu(contextMenu);
     }
@@ -123,5 +126,9 @@ public class Entry extends Button
     public void setFields(JSONObject f){
         fields = f;
         updateButton();
+    }
+
+    public void print(){
+        App.pdfManager.saveToPDF(this, "New-Entry" + ".pdf");
     }
 }
