@@ -116,6 +116,15 @@ public class OpenedEntryController {
             }
 
         });
+
+        cancelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+
+            @Override
+            public void handle(MouseEvent arg0) {
+                Stage stage = (Stage)cancelButton.getScene().getWindow();
+                stage.close();
+            }
+        });
     }
     public OpenedEntryController(){
 
@@ -168,12 +177,12 @@ public class OpenedEntryController {
 
     public void populate(){
         accomplishArea.setText(fields.getString("accomplishArea"));
-        try{date1.setValue(LocalDate.parse(fields.getString("date1")));}catch(DateTimeParseException e){};
-        try{date2.setValue(LocalDate.parse(fields.getString("date2")));}catch(DateTimeParseException e){};
-        try{date3.setValue(LocalDate.parse(fields.getString("date3")));}catch(DateTimeParseException e){};
-        try{date4.setValue(LocalDate.parse(fields.getString("date4")));}catch(DateTimeParseException e){};
-        try{date5.setValue(LocalDate.parse(fields.getString("date5")));}catch(DateTimeParseException e){};
-        try{entryDate.setValue(LocalDate.parse(fields.getString("entryDate")));}catch(DateTimeParseException e){};
+        try{date1.setValue(LocalDate.parse(fields.getString("date1")));}catch(DateTimeParseException ignored){}
+        try{date2.setValue(LocalDate.parse(fields.getString("date2")));}catch(DateTimeParseException ignored){}
+        try{date3.setValue(LocalDate.parse(fields.getString("date3")));}catch(DateTimeParseException ignored){}
+        try{date4.setValue(LocalDate.parse(fields.getString("date4")));}catch(DateTimeParseException ignored){}
+        try{date5.setValue(LocalDate.parse(fields.getString("date5")));}catch(DateTimeParseException ignored){}
+        try{entryDate.setValue(LocalDate.parse(fields.getString("entryDate")));}catch(DateTimeParseException ignored){}
         firstName.setText(fields.getString("firstName"));
         gradYear.setText(fields.getString("gradYear"));
         hour1.setText(fields.getString("hour1"));

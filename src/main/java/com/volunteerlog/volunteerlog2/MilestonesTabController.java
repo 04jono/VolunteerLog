@@ -29,6 +29,7 @@ public class MilestonesTabController {
     public void initialize(){
         App.mtabController = this;
         pieChart.setTitle("Time Spent Volunteering");
+        barChart.setTitle("Months Volunteered");
         updateCharts();
 
         totalHoursField.setEditable(false);

@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -30,6 +31,15 @@ public class LogTabController {
 
     @FXML
     private Button logbuttonNew;
+
+    @FXML
+    private Label pageNumLabel;
+
+    @FXML
+    private Button rightPage;
+
+    @FXML
+    private Button leftPage;
 
     @FXML
     private Button saveButton;
@@ -92,6 +102,32 @@ public class LogTabController {
                 App.orgNameSearch = "";
                 App.dateSearch = "";
                 updateView();
+            }
+        });
+
+        pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+15));
+
+        leftPage.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+
+            @Override
+            public void handle(MouseEvent arg0) {
+                if(App.startIndexSearch >= 15){
+                    App.startIndexSearch -= 15;
+                    pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+15));
+                    updateView();
+                }
+            }
+        });
+
+        rightPage.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
+
+            @Override
+            public void handle(MouseEvent arg0) {
+                if(App.startIndexSearch < viewable.size()){
+                    App.startIndexSearch += 15;
+                    pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+15));
+                    updateView();
+                }
             }
         });
                 
