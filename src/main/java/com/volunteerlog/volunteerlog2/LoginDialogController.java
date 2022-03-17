@@ -66,6 +66,7 @@ public class LoginDialogController {
                     if(App.loginManager.validate(usernameField.getText(), passwordField.getText())){
                         App.saveManager.setFilePath("saves/" + usernameField.getText() + ".json");
                         App.saveManager.load();
+                        App.mtabController.updateCharts();
                         App.mainStage.show();
                         Stage stage = (Stage)loginButton.getScene().getWindow();
                         stage.close();
@@ -78,6 +79,7 @@ public class LoginDialogController {
                         App.loginManager.addUser(usernameField.getText(), passwordField.getText());
                         App.loginManager.save();
                         App.saveManager.setFilePath("saves/" + usernameField.getText() + ".json");
+
                         App.mainStage.show();
                         Stage stage = (Stage)loginButton.getScene().getWindow();
                         stage.close();

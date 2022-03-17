@@ -152,6 +152,7 @@ public class OpenedEntryController {
         entry.setFields(fields);
         entry.updateButton();
         App.ltabController.updateView();
+        App.mtabController.updateCharts();
     }
 
     public void onPrint(){

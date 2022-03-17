@@ -20,6 +20,8 @@ import org.json.*;
 
 public class Entry extends Button
 {
+    private int totalHours;
+
     private OpenedEntryController controller;
     private ContextMenu contextMenu;
     //Fields
@@ -68,13 +70,22 @@ public class Entry extends Button
         });
 
         contextMenu = new ContextMenu();
+        MenuItem edit = new MenuItem("Edit");
         MenuItem print = new MenuItem("Print");
         MenuItem delete = new MenuItem("Delete");
+
+        edit.setOnAction((event)-> {
+            click();
+        });
 
         print.setOnAction((event) -> {
             print();
         });
-        contextMenu.getItems().addAll(print, delete);
+
+        delete.setOnAction((event) -> {
+            remove();
+        });
+        contextMenu.getItems().addAll(edit, print, delete);
 
         this.setContextMenu(contextMenu);
     }
@@ -130,5 +141,23 @@ public class Entry extends Button
 
     public void print(){
         App.pdfManager.saveToPDF(this, "New-Entry" + ".pdf");
+    }
+
+    public void remove(){
+        App.entries.remove(this);
+        App.ltabController.updateView();
+        App.mtabController.updateCharts();
+    }
+
+    public int getTotalHours(){
+        int total = 0;
+        try{total += Integer.parseInt(this.getFields().getString("hour1"));}catch(Exception e){}
+        try{total += Integer.parseInt(this.getFields().getString("hour2"));}catch(Exception e){}
+        try{total += Integer.parseInt(this.getFields().getString("hour3"));}catch(Exception e){}
+        try{total += Integer.parseInt(this.getFields().getString("hour4"));}catch(Exception e){}
+        try{total += Integer.parseInt(this.getFields().getString("hour5"));}catch(Exception e){}
+
+
+        return total;
     }
 }

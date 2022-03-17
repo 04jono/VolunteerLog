@@ -19,6 +19,7 @@ public class App extends Application {
 
     public static CalendarTabController ctabController;
     public static LogTabController ltabController;
+    public static MilestonesTabController mtabController;
 
     public static Stage mainStage;
 

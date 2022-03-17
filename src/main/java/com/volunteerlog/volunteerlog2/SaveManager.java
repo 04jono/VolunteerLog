@@ -20,6 +20,7 @@ public class SaveManager{
             pw.println(saveArray.toString(4));
             pw.close();
             App.ltabController.updateView();
+            App.mtabController.updateCharts();
         }catch(Exception e){
             System.out.println("COULD NOT SAVE");
         }
@@ -37,6 +38,7 @@ public class SaveManager{
                 App.entries.add(e);
             }
             App.ltabController.updateView();
+            App.mtabController.updateCharts();
         }catch(Exception e){
             System.out.println("COULD NOT LOAD");
         }

@@ -20,7 +20,7 @@
                   <fx:include fx:id="ctab" source="CalendarTab.fxml"/>
             </Tab>
             <Tab fx:id="tabMilestones" text="Milestones">
-               <fx:include fx:id="mtab" source="Milestones.fxml"/>
+               <fx:include fx:id="mtab" source="MilestonesTab.fxml"/>
             </Tab>
          </tabs>
       </TabPane>
