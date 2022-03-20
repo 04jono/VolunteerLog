@@ -21,10 +21,7 @@
    <children>
       <MenuBar>
         <menus>
-          <Menu mnemonicParsing="false" text="View">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
+          <Menu mnemonicParsing="false" text="View" fx:id="viewMenu">
           </Menu>
         </menus>
       </MenuBar>
@@ -34,12 +31,12 @@
             <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
               <items>
                   <BarChart fx:id="barChart">
-                    <xAxis>
-                      <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                      <NumberAxis side="LEFT" />
-                    </yAxis>
+                      <xAxis>
+                          <CategoryAxis fx:id="xAxis" side="BOTTOM" />
+                      </xAxis>
+                      <yAxis>
+                          <NumberAxis fx:id="yAxis" side="LEFT" />
+                      </yAxis>
                   </BarChart>
                   <GridPane>
                     <columnConstraints>
