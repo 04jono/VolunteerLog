@@ -91,8 +91,8 @@ public class LoginDialogController {
                     }
                 }
                 else{
-                    if(!(App.loginManager.contains(usernameField.getText())) && !(passwordFieldVisible.getText().equals(""))){
-                        App.loginManager.addUser(usernameField.getText(), passwordField.getText());
+                    if(!(usernameField.getText().equals("")) && !(App.loginManager.contains(usernameField.getText())) && !(passwordFieldVisible.getText().equals(""))){
+                        App.loginManager.addUser(usernameField.getText(), passwordFieldVisible.getText());
                         App.loginManager.save();
                         App.saveManager.setFilePath("saves/" + usernameField.getText() + ".json");
                         App.mtabController.setFilePath("saves/" + usernameField.getText() + ".milestones");

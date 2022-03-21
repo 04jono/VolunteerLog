@@ -75,6 +75,7 @@ public class PDFManager {
 			PdfTextFormField date5Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(50, 546, 100, 8), "date5", "");
 			date5Field.setFontSize(8);
 			form.addField(date5Field);
+
 			PdfTextFormField hour1Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(175, 594, 100, 8), "hour1", "");
 			hour1Field.setFontSize(8);
 			form.addField(hour1Field);
@@ -90,6 +91,38 @@ public class PDFManager {
 			PdfTextFormField hour5Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(175, 546, 100, 8), "hour5", "");
 			hour5Field.setFontSize(8);
 			form.addField(hour5Field);
+
+			PdfTextFormField totalHoursField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(450, 534, 100, 8), "totalHours", "");
+			totalHoursField.setFontSize(8);
+			form.addField(totalHoursField);
+
+			PdfTextFormField prepareAreaField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(50, 425, 510, 55), "prepareArea", "");
+			prepareAreaField.setFontSize(10);
+			form.addField(prepareAreaField);
+
+			PdfTextFormField accomplishAreaField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(50, 335, 510, 65), "accomplishArea", "");
+			accomplishAreaField.setFontSize(10);
+			form.addField(accomplishAreaField);
+
+			PdfTextFormField learnAreaField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(50, 245, 510, 55), "learnArea", "");
+			learnAreaField.setFontSize(10);
+			form.addField(learnAreaField);
+
+			PdfTextFormField supervisorNameField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(50, 110, 200, 15), "supervisorName", "");
+			supervisorNameField.setFontSize(10);
+			form.addField(supervisorNameField);
+
+			PdfTextFormField supervisorTitleField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(265, 110, 130, 15), "supervisorTitle", "");
+			supervisorTitleField.setFontSize(10);
+			form.addField(supervisorTitleField);
+
+			PdfTextFormField supervisorPhoneField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(410, 110, 140, 15), "supervisorPhone", "");
+			supervisorPhoneField.setFontSize(10);
+			form.addField(supervisorPhoneField);
+
+			PdfTextFormField supervisorEmailField = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(410, 88, 140, 15), "supervisorEmail", "");
+			supervisorEmailField.setFontSize(10);
+			form.addField(supervisorEmailField);
 			
 
 			for(String key : currEntry.getFields().keySet()){
