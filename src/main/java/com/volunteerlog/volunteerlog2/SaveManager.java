@@ -24,6 +24,7 @@ public class SaveManager{
         }catch(Exception e){
             System.out.println("COULD NOT SAVE");
         }
+        App.ltabController.updateView();
     }
 
     public void load(){

@@ -3,6 +3,7 @@ package com.volunteerlog.volunteerlog2;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
+import javafx.beans.value.ObservableValue;
 import org.json.JSONObject;
 
 import javafx.event.EventHandler;
@@ -125,9 +126,15 @@ public class OpenedEntryController {
                 stage.close();
             }
         });
+
+        //Integer Only Text Fields
+        hour1.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> { if (!newValue.matches("\\d*")) { hour1.setText(newValue.replaceAll("[^\\d]", ""));}});
+        hour2.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> { if (!newValue.matches("\\d*")) { hour2.setText(newValue.replaceAll("[^\\d]", ""));}});
+        hour3.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> { if (!newValue.matches("\\d*")) { hour3.setText(newValue.replaceAll("[^\\d]", ""));}});
+        hour4.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> { if (!newValue.matches("\\d*")) { hour4.setText(newValue.replaceAll("[^\\d]", ""));}});
+        hour5.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> { if (!newValue.matches("\\d*")) { hour5.setText(newValue.replaceAll("[^\\d]", ""));}});
     }
     public OpenedEntryController(){
-
     }
 
     public void onFinish(){
@@ -135,12 +142,12 @@ public class OpenedEntryController {
         stage.close();
 
         fields.put("accomplishArea", accomplishArea.getText());
-        if(date1.getValue() != null) fields.put("date1", date1.getValue().toString());
-        if(date2.getValue() != null) fields.put("date2", date2.getValue().toString());
-        if(date3.getValue() != null) fields.put("date3", date3.getValue().toString());
-        if(date4.getValue() != null) fields.put("date4", date4.getValue().toString());
-        if(date5.getValue() != null) fields.put("date5", date5.getValue().toString());
-        if(entryDate.getValue() != null) fields.put("entryDate", entryDate.getValue().toString());
+        if(date1.getValue() != null) fields.put("date1", date1.getValue().format(App.formatter));
+        if(date2.getValue() != null) fields.put("date2", date2.getValue().format(App.formatter));
+        if(date3.getValue() != null) fields.put("date3", date3.getValue().format(App.formatter));
+        if(date4.getValue() != null) fields.put("date4", date4.getValue().format(App.formatter));
+        if(date5.getValue() != null) fields.put("date5", date5.getValue().format(App.formatter));
+        if(entryDate.getValue() != null) fields.put("entryDate", entryDate.getValue().format(App.formatter));
         fields.put("firstName", firstName.getText());
         fields.put("gradYear", gradYear.getText());
         fields.put("hour1", hour1.getText());
@@ -161,7 +168,6 @@ public class OpenedEntryController {
         entry.setFields(fields);
         entry.updateButton();
         App.ltabController.updateView();
-        App.mtabController.updateCharts();
     }
 
     public void onPrint(){
@@ -177,12 +183,12 @@ public class OpenedEntryController {
 
     public void populate(){
         accomplishArea.setText(fields.getString("accomplishArea"));
-        try{date1.setValue(LocalDate.parse(fields.getString("date1")));}catch(DateTimeParseException ignored){}
-        try{date2.setValue(LocalDate.parse(fields.getString("date2")));}catch(DateTimeParseException ignored){}
-        try{date3.setValue(LocalDate.parse(fields.getString("date3")));}catch(DateTimeParseException ignored){}
-        try{date4.setValue(LocalDate.parse(fields.getString("date4")));}catch(DateTimeParseException ignored){}
-        try{date5.setValue(LocalDate.parse(fields.getString("date5")));}catch(DateTimeParseException ignored){}
-        try{entryDate.setValue(LocalDate.parse(fields.getString("entryDate")));}catch(DateTimeParseException ignored){}
+        try{date1.setValue(LocalDate.parse(fields.getString("date1"), App.formatter));}catch(DateTimeParseException ignored){}
+        try{date2.setValue(LocalDate.parse(fields.getString("date2"), App.formatter));}catch(DateTimeParseException ignored){}
+        try{date3.setValue(LocalDate.parse(fields.getString("date3"), App.formatter));}catch(DateTimeParseException ignored){}
+        try{date4.setValue(LocalDate.parse(fields.getString("date4"), App.formatter));}catch(DateTimeParseException ignored){}
+        try{date5.setValue(LocalDate.parse(fields.getString("date5"), App.formatter));}catch(DateTimeParseException ignored){}
+        try{entryDate.setValue(LocalDate.parse(fields.getString("entryDate"), App.formatter));}catch(DateTimeParseException ignored){}
         firstName.setText(fields.getString("firstName"));
         gradYear.setText(fields.getString("gradYear"));
         hour1.setText(fields.getString("hour1"));

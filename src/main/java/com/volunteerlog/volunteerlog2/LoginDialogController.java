@@ -25,12 +25,16 @@ public class LoginDialogController {
     private PasswordField passwordField;
 
     @FXML
+    private TextField passwordFieldVisible;
+
+    @FXML
     private TextField usernameField;
 
     private boolean signIn;
 
     public void initialize(){
         signIn = true;
+        passwordFieldVisible.setVisible(false);
         createAccountLink.setVisited(false);
         createAccountLink.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
 
@@ -42,6 +46,11 @@ public class LoginDialogController {
                     helpText.setText("Already have an account?");
                     createAccountLink.setText("Sign in");
                     loginButton.setText("Create Account");
+                    passwordField.setVisible(false);
+                    passwordFieldVisible.setVisible(true);
+                    usernameField.setText("");
+                    passwordFieldVisible.setText("");
+                    passwordField.setText("");
                     Stage stage = (Stage)loginButton.getScene().getWindow();
                     stage.setTitle("Create Account");
                 }else{
@@ -50,6 +59,11 @@ public class LoginDialogController {
                     helpText.setText("New to Volunteer Log?");
                     createAccountLink.setText("Create an account");
                     loginButton.setText("Sign In");
+                    passwordField.setVisible(true);
+                    passwordFieldVisible.setVisible(false);
+                    usernameField.setText("");
+                    passwordFieldVisible.setText("");
+                    passwordField.setText("");
                     Stage stage = (Stage)loginButton.getScene().getWindow();
                     stage.setTitle("Sign In");
                 }
@@ -66,7 +80,9 @@ public class LoginDialogController {
                     if(App.loginManager.validate(usernameField.getText(), passwordField.getText())){
                         App.saveManager.setFilePath("saves/" + usernameField.getText() + ".json");
                         App.saveManager.load();
-                        App.mtabController.updateCharts();
+                        App.mtabController.setFilePath("saves/" + usernameField.getText() + ".milestones");
+                        App.mtabController.load();
+
                         App.mainStage.show();
                         Stage stage = (Stage)loginButton.getScene().getWindow();
                         stage.close();
@@ -75,10 +91,11 @@ public class LoginDialogController {
                     }
                 }
                 else{
-                    if(!(App.loginManager.contains(usernameField.getText())) && !(passwordField.getText().equals(""))){
+                    if(!(App.loginManager.contains(usernameField.getText())) && !(passwordFieldVisible.getText().equals(""))){
                         App.loginManager.addUser(usernameField.getText(), passwordField.getText());
                         App.loginManager.save();
                         App.saveManager.setFilePath("saves/" + usernameField.getText() + ".json");
+                        App.mtabController.setFilePath("saves/" + usernameField.getText() + ".milestones");
 
                         App.mainStage.show();
                         Stage stage = (Stage)loginButton.getScene().getWindow();

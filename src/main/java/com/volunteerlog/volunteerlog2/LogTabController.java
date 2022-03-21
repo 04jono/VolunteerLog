@@ -63,7 +63,7 @@ public class LogTabController {
         App.startIndexSearch = 0;
         App.orgNameSearch = "";
         viewable = new ArrayList<Entry>();
-        updateView();
+        //updateView();
         logbuttonNew.setGraphic(Constants.addNewImgView);
         searchButton.setGraphic(Constants.searchImgView1);
         logbuttonNew.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
@@ -168,10 +168,10 @@ public class LogTabController {
                 addUI(entry);
             }
             //Date Only
-            else if(App.orgNameSearch.equals("") && LocalDate.parse(entry.getFields().getString("entryDate")).equals(LocalDate.parse(date))){
+            else if(App.orgNameSearch.equals("") && LocalDate.parse(entry.getFields().getString("entryDate"), App.formatter).equals(LocalDate.parse(date, App.formatter))){
                 addUI(entry);
             }
-            else if(entry.getFields().getString("orgName").toLowerCase().equals(orgName.toLowerCase()) && LocalDate.parse(entry.getFields().getString("entryDate")).equals(LocalDate.parse(date))){
+            else if(entry.getFields().getString("orgName").toLowerCase().equals(orgName.toLowerCase()) && LocalDate.parse(entry.getFields().getString("entryDate"), App.formatter).equals(LocalDate.parse(date, App.formatter))){
                 addUI(entry);
             }
         }

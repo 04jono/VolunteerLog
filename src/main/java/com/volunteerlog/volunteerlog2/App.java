@@ -1,6 +1,7 @@
 package com.volunteerlog.volunteerlog2;
 
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -13,11 +14,15 @@ import javafx.stage.Stage;
 
 public class App extends Application {
 
+    //Date format
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
     //Current search
     public static String orgNameSearch;
     public static String dateSearch;
     public static int startIndexSearch;
 
+    //Controllers
     public static CalendarTabController ctabController;
     public static LogTabController ltabController;
     public static MilestonesTabController mtabController;

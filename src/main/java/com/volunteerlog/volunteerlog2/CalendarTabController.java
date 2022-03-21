@@ -34,18 +34,7 @@ public class CalendarTabController {
         public CalendarDay(Node... children){
             super(children);
 
-            this.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
-                @Override
-                public void handle(MouseEvent arg0) {
-                    click();
-                }
-                
-            });
-        }
-
-        public void click(){
-            System.out.println(getDate());
         }
 
         public LocalDate getDate(){
@@ -146,7 +135,7 @@ public class CalendarTabController {
             Color[] colors = {Color.LIGHTBLUE, Color.LIGHTPINK, Color.LIGHTSEAGREEN};
             double[] anchors = {30.0, 50.0, 70.0};
             for(Entry e : App.entries){
-                if(pane.getDate().isEqual(LocalDate.parse(e.getFields().getString("entryDate")))){
+                if(pane.getDate().isEqual(LocalDate.parse(e.getFields().getString("entryDate"), App.formatter))){
 
                     if(pane.getChildren().size() >= 4){
                         continue;

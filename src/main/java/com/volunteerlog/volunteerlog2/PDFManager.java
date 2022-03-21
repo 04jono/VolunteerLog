@@ -76,19 +76,19 @@ public class PDFManager {
 			date5Field.setFontSize(8);
 			form.addField(date5Field);
 			PdfTextFormField hour1Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(175, 594, 100, 8), "hour1", "");
-			date5Field.setFontSize(8);
+			hour1Field.setFontSize(8);
 			form.addField(hour1Field);
 			PdfTextFormField hour2Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(175, 582, 100, 8), "hour2", "");
-			date5Field.setFontSize(8);
+			hour2Field.setFontSize(8);
 			form.addField(hour2Field);
 			PdfTextFormField hour3Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(175, 570, 100, 8), "hour3", "");
-			date5Field.setFontSize(8);
+			hour3Field.setFontSize(8);
 			form.addField(hour3Field);
 			PdfTextFormField hour4Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(175, 558, 100, 8), "hour4", "");
-			date5Field.setFontSize(8);
+			hour4Field.setFontSize(8);
 			form.addField(hour4Field);
 			PdfTextFormField hour5Field = PdfTextFormField.createText(document.getPdfDocument(), new Rectangle(175, 546, 100, 8), "hour5", "");
-			date5Field.setFontSize(8);
+			hour5Field.setFontSize(8);
 			form.addField(hour5Field);
 			
 

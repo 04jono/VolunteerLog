@@ -54,7 +54,7 @@ public class Entry extends Button
         fields.put("supervisorTitle", "");
 
         this.setId(Long.toString(createHash()));
-        this.fields.put("entryDate", LocalDate.now().toString());
+        this.fields.put("entryDate", LocalDate.now().format(App.formatter));
         updateButton();
         this.setAlignment(Pos.CENTER_LEFT);
         this.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
@@ -146,7 +146,6 @@ public class Entry extends Button
     public void remove(){
         App.entries.remove(this);
         App.ltabController.updateView();
-        App.mtabController.updateCharts();
     }
 
     public int getTotalHours(){
