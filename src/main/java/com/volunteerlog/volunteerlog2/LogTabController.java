@@ -21,6 +21,8 @@ import javafx.stage.Stage;
 
 public class LogTabController {
 
+    private final int tabFactor = 20;
+
     private SearchDialogController searchController;
 
     @FXML
@@ -105,15 +107,15 @@ public class LogTabController {
             }
         });
 
-        pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+15));
+        pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+tabFactor));
 
         leftPage.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
 
             @Override
             public void handle(MouseEvent arg0) {
-                if(App.startIndexSearch >= 15){
-                    App.startIndexSearch -= 15;
-                    pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+15));
+                if(App.startIndexSearch >= tabFactor){
+                    App.startIndexSearch -= tabFactor;
+                    pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+tabFactor));
                     updateView();
                 }
             }
@@ -124,8 +126,8 @@ public class LogTabController {
             @Override
             public void handle(MouseEvent arg0) {
                 if(App.startIndexSearch < viewable.size()){
-                    App.startIndexSearch += 15;
-                    pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+15));
+                    App.startIndexSearch += tabFactor;
+                    pageNumLabel.setText(String.format("%03d", App.startIndexSearch+1) + " - " + String.format("%03d", App.startIndexSearch+tabFactor));
                     updateView();
                 }
             }
@@ -174,7 +176,7 @@ public class LogTabController {
             }
         }
         logRightGridPane.getChildren().clear();
-        for(int i = startIndex; i < startIndex+15; i++){
+        for(int i = startIndex; i < startIndex+tabFactor; i++){
             if(i >= viewable.size()){
                 break;
             }

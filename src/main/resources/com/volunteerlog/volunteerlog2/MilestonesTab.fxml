@@ -5,14 +5,19 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -21,18 +26,60 @@
    <children>
       <MenuBar>
         <menus>
-          <Menu mnemonicParsing="false" text="View" fx:id="viewMenu">
+          <Menu fx:id="viewMenu" mnemonicParsing="false" text="View">
           </Menu>
         </menus>
       </MenuBar>
       <SplitPane dividerPositions="0.5" prefHeight="720.0" prefWidth="1080.0">
          <items>
-            <PieChart fx:id="pieChart" />
+            <SplitPane dividerPositions="0.6" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+              <items>
+                  <PieChart fx:id="pieChart" />
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="536.0">
+                           <children>
+                              <Button fx:id="addMilestoneButton" mnemonicParsing="false" onAction="#addMilestone" text="Add Milestone">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <ChoiceBox prefHeight="26.0" prefWidth="100.0" fx:id="yearChoiceBox">
+                                 <HBox.margin>
+                                    <Insets left="100.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <TextField fx:id="hourField">
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="milestoneTable" prefHeight="180.0" prefWidth="527.0">
+                          <columns>
+                            <TableColumn prefWidth="233.6000002026558" text="Scope">
+                              <cellValueFactory><PropertyValueFactory property="scope" />
+                              </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn minWidth="6.39996337890625" prefWidth="294.4000549316406" text="Hours">
+                              <cellValueFactory><PropertyValueFactory property="hours" />
+                              </cellValueFactory>
+                            </TableColumn>
+                          </columns>
+                           <VBox.margin>
+                              <Insets bottom="50.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+              </items>
+            </SplitPane>
             <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
               <items>
                   <BarChart fx:id="barChart">
                       <xAxis>
-                          <CategoryAxis fx:id="xAxis" side="BOTTOM" />
+                          <CategoryAxis side="BOTTOM" fx:id="xAxis" />
                       </xAxis>
                       <yAxis>
                           <NumberAxis fx:id="yAxis" side="LEFT" />

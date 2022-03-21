@@ -15,9 +15,6 @@ public class MainSceneController {
     private Tab tabCalendar;
 
     @FXML
-    private Tab tabHome;
-
-    @FXML
     private Tab tabLog;
 
     @FXML
@@ -27,9 +24,6 @@ public class MainSceneController {
     private TabPane tabPane;
 
     public void initialize(){
-        Label label = new Label("This is the home tab");
-        tabHome.setContent(label);
-        tabHome.setGraphic(Constants.homeImgView);
         tabLog.setGraphic(Constants.logImgView);
         tabMilestones.setGraphic(Constants.milestonesImgView);
         tabCalendar.setGraphic(Constants.calendarImgView);

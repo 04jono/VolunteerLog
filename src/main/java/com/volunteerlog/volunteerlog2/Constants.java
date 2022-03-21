@@ -4,7 +4,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Constants {
-    public static ImageView homeImgView = createImage("home.png");
     public static ImageView logImgView = createImage("addlist.png");
     public static ImageView milestonesImgView = createImage("spreadsheet.png");
     public static ImageView calendarImgView = createImage("calendar.png");
