@@ -41,6 +41,7 @@ public class LoginDialogController {
             @Override
             public void handle(MouseEvent arg0) {
                 if(signIn){
+                    //Toggle to create account
                     signIn = false;
                     header.setText("Create Account");
                     helpText.setText("Already have an account?");
@@ -54,6 +55,7 @@ public class LoginDialogController {
                     Stage stage = (Stage)loginButton.getScene().getWindow();
                     stage.setTitle("Create Account");
                 }else{
+                    //Toggle to sign in
                     signIn = true;
                     header.setText("Sign In");
                     helpText.setText("New to Volunteer Log?");
@@ -77,6 +79,7 @@ public class LoginDialogController {
             @Override
             public void handle(MouseEvent arg0) {
                 if(signIn){
+                    //If signing in
                     if(App.loginManager.validate(usernameField.getText(), passwordField.getText())){
                         App.saveManager.setFilePath("saves/" + usernameField.getText() + ".json");
                         App.saveManager.load();
@@ -91,6 +94,7 @@ public class LoginDialogController {
                     }
                 }
                 else{
+                    //If creating account
                     if(!(usernameField.getText().equals("")) && !(App.loginManager.contains(usernameField.getText())) && !(passwordFieldVisible.getText().equals(""))){
                         App.loginManager.addUser(usernameField.getText(), passwordFieldVisible.getText());
                         App.loginManager.save();

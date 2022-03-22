@@ -30,6 +30,7 @@ public class SearchDialogController {
 
     public void initialize(){
         searchFinishButton.setGraphic(Constants.searchImgView2);
+        //Bind search fields to check box
         nameSearchField.editableProperty().bind(nameRadio.selectedProperty());
         nameSearchField.disableProperty().bind(nameRadio.selectedProperty().not());
         dateSearchField.editableProperty().bind(dateRadio.selectedProperty());

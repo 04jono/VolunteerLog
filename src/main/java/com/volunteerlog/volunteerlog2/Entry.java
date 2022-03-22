@@ -28,6 +28,7 @@ public class Entry extends Button
     private JSONObject fields;
 
     Entry(){
+        //Add all fields
         fields = new JSONObject();
         fields.put("accomplishArea", "");
         fields.put("date1", "");
@@ -69,6 +70,7 @@ public class Entry extends Button
 
         });
 
+        //Add context menu
         contextMenu = new ContextMenu();
         MenuItem edit = new MenuItem("Edit");
         MenuItem print = new MenuItem("Print");
@@ -140,6 +142,7 @@ public class Entry extends Button
     }
 
     public void print(){
+        //Save to PDF
         App.pdfManager.saveToPDF(this, "New-Entry" + ".pdf");
     }
 
@@ -149,6 +152,7 @@ public class Entry extends Button
     }
 
     public int getTotalHours(){
+        //Add up total hours
         int total = 0;
         try{total += Integer.parseInt(this.getFields().getString("hour1"));}catch(Exception e){}
         try{total += Integer.parseInt(this.getFields().getString("hour2"));}catch(Exception e){}

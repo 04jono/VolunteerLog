@@ -138,6 +138,7 @@ public class OpenedEntryController {
     }
 
     public void onFinish(){
+        //When finished, add to JSON Object
         Stage stage = (Stage)finishButton.getScene().getWindow();
         stage.close();
 
@@ -182,6 +183,7 @@ public class OpenedEntryController {
     }
 
     public void populate(){
+        //Add fields to dialog
         accomplishArea.setText(fields.getString("accomplishArea"));
         try{date1.setValue(LocalDate.parse(fields.getString("date1"), App.formatter));}catch(DateTimeParseException ignored){}
         try{date2.setValue(LocalDate.parse(fields.getString("date2"), App.formatter));}catch(DateTimeParseException ignored){}

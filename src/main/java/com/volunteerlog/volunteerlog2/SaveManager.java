@@ -11,6 +11,7 @@ public class SaveManager{
     }
     
     public void save(){
+        //Save to JSON
         try{
             JSONArray saveArray = new JSONArray();
             PrintWriter pw = new PrintWriter(new PrintWriter(filePath));
@@ -28,6 +29,7 @@ public class SaveManager{
     }
 
     public void load(){
+        //Load from JSON
         try{
             App.entries.clear();
             InputStream inputStream = new FileInputStream(filePath);

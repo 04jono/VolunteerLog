@@ -27,6 +27,7 @@ import javafx.scene.text.Text;
 
 public class CalendarTabController {
     private class CalendarDay extends AnchorPane {
+        //Smallest unit of calendar, CalendarDay
         private LocalDate date;
 
         private ArrayList<Button> buttonList;
@@ -132,6 +133,7 @@ public class CalendarTabController {
             pane.setLeftAnchor(dayString, 5.0);
             pane.getChildren().add(dayString);
 
+            //Alternate colors for ribbons
             Color[] colors = {Color.LIGHTBLUE, Color.LIGHTPINK, Color.LIGHTSEAGREEN};
             double[] anchors = {30.0, 50.0, 70.0};
             for(Entry e : App.entries){

@@ -135,6 +135,7 @@ public class PDFManager {
 
 			File outputFile = new File(PATH_TO_OUTPUT);
 
+			//Open in default browser
 			new Thread(()->{
 				hostServices.showDocument(outputFile.getAbsolutePath());
 			}).start();

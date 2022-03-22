@@ -37,6 +37,7 @@ public class LoginManager {
     }
 
     public boolean validate(String user, String pass){
+        //Check if username has the right value
         if(keys.keySet().contains(user)){
             if(keys.getString(user).equals(pass)){
                 return true;

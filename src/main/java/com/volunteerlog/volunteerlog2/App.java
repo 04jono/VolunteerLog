@@ -53,6 +53,7 @@ public class App extends Application {
 
         Parent root;
         try{
+            //Open Main Stage then hide
             mainStage = primaryStage;
             root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
             Scene scene = new Scene(root);

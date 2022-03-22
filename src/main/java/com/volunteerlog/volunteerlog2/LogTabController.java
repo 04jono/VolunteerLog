@@ -62,10 +62,12 @@ public class LogTabController {
         App.ltabController = this;
         App.startIndexSearch = 0;
         App.orgNameSearch = "";
-        viewable = new ArrayList<Entry>();
-        //updateView();
+        viewable = new ArrayList<Entry>(); //Array that holds all the entries in view, separate from total entries
+
         logbuttonNew.setGraphic(Constants.addNewImgView);
         searchButton.setGraphic(Constants.searchImgView1);
+
+        //Action Listeners
         logbuttonNew.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>(){
 
             @Override
@@ -144,6 +146,8 @@ public class LogTabController {
 
     public void updateView(){
         clearUI();
+
+        //Get current search parameters, if available
         int startIndex = App.startIndexSearch;
         String orgName = App.orgNameSearch;
         String date = App.dateSearch;
